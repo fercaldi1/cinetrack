@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CineTrack - gerenciador pessoal de filmes">
+  <title>CineTrack</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <h1 class="logo">Cine<span>Track</span></h1>
+      <button type="button" class="btn btn-primary" id="add-btn">+ Adicionar</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="toolbar" aria-label="Busca e filtros">
+      <div class="search">
+        <label for="search-input">Buscar por título</label>
+        <input type="search" id="search-input" placeholder="Ex.: Duna" autocomplete="off" aria-controls="movie-list">
+      </div>
+
+      <div class="filters" role="group" aria-label="Filtrar por status">
+        <button type="button" class="filter-btn active" data-status="todos" aria-pressed="true">Todos</button>
+        <button type="button" class="filter-btn" data-status="assistido" aria-pressed="false">Assistido</button>
+        <button type="button" class="filter-btn" data-status="assistindo" aria-pressed="false">Assistindo</button>
+        <button type="button" class="filter-btn" data-status="quero" aria-pressed="false">Quero assistir</button>
+      </div>
+    </section>
+
+    <section class="movies" aria-labelledby="list-title">
+      <div class="list-header">
+        <h2 id="list-title">Minha lista</h2>
+        <p id="result-count" class="result-count" aria-live="polite"></p>
+      </div>
+
+      <ul id="movie-list" class="movie-grid"></ul>
+      <p id="empty-message" class="empty-message" hidden></p>
+    </section>
+  </main>
+
+  <dialog id="movie-dialog" class="movie-dialog" aria-labelledby="dialog-title">
+    <form id="movie-form" class="movie-form">
+      <h2 id="dialog-title">Adicionar filme</h2>
+      <p id="form-message" class="form-message" role="alert"></p>
+
+      <div class="field">
+        <label for="titulo">Título</label>
+        <input type="text" id="titulo" name="titulo" maxlength="120" required aria-describedby="titulo-error">
+        <span class="field-error" id="titulo-error"></span>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="ano">Ano</label>
+          <input type="number" id="ano" name="ano" step="1" placeholder="Ex.: 2010" required aria-describedby="ano-error">
+          <span class="field-error" id="ano-error"></span>
+        </div>
+
+        <div class="field">
+          <label for="nota">Nota (1 a 5)</label>
+          <input type="number" id="nota" name="nota" min="1" max="5" step="1" required aria-describedby="nota-error">
+          <span class="field-error" id="nota-error"></span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="genero">Gênero</label>
+          <input type="text" id="genero" name="genero" maxlength="60" placeholder="Ex.: Drama" required aria-describedby="genero-error">
+          <span class="field-error" id="genero-error"></span>
+        </div>
+
+        <div class="field">
+          <label for="status">Status</label>
+          <select id="status" name="status" required aria-describedby="status-error">
+            <option value="">Selecione...</option>
+            <option value="assistido">Assistido</option>
+            <option value="assistindo">Assistindo</option>
+            <option value="quero">Quero assistir</option>
+          </select>
+          <span class="field-error" id="status-error"></span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="poster">URL do pôster <span class="optional">(opcional)</span></label>
+        <input type="url" id="poster" name="poster" placeholder="https://..." aria-describedby="poster-error">
+        <span class="field-error" id="poster-error"></span>
+      </div>
+
+      <div class="field">
+        <label for="comentario">Comentário <span class="optional">(opcional)</span></label>
+        <textarea id="comentario" name="comentario" rows="3" maxlength="500"></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn btn-secondary" id="cancel-btn">Cancelar</button>
+        <button type="submit" class="btn btn-primary" id="submit-btn">Adicionar</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>

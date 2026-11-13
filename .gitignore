@@ -3,3 +3,16 @@ Thumbs.db
 .vscode/
 .idea/
 *.log
+
+# Dependências e arquivos gerados
+node_modules/
+dist/
+.vite/
+
+# Variáveis de ambiente (nunca versionar; use os arquivos .env.example)
+.env
+.env.*
+!.env.example
+
+# Arquivo temporário da persistência em JSON
+backend/data/*.tmp

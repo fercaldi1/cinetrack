@@ -1,0 +1,98 @@
+/* Tema (variáveis CSS) e estilos base, reaproveitados da Parte 1. */
+
+:root {
+  --color-bg: #f3f4f7;
+  --color-surface: #ffffff;
+  --color-surface-alt: #eceef3;
+  --color-text: #1c2130;
+  --color-muted: #5a6273;
+  --color-border: #d5d9e2;
+  --color-primary: #c81e4a;
+  --color-primary-hover: #a4163b;
+  --color-primary-text: #ffffff;
+  --color-danger: #b42318;
+  --color-danger-bg: #fdecea;
+  --color-star: #f2a31b;
+  --color-focus: #2563eb;
+
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-pill: 999px;
+
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.06), 0 4px 14px rgb(0 0 0 / 0.06);
+  --shadow-hover: 0 4px 10px rgb(0 0 0 / 0.08), 0 12px 28px rgb(0 0 0 / 0.1);
+  --shadow-dialog: 0 20px 50px rgb(0 0 0 / 0.3);
+
+  --gap: 1rem;
+  --page-padding: 1.5rem;
+
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #111318;
+    --color-surface: #1b1e26;
+    --color-surface-alt: #262a34;
+    --color-text: #e7e9ef;
+    --color-muted: #a1a8b6;
+    --color-border: #363c49;
+    --color-primary-hover: #e0335f;
+    --color-danger: #ff8a80;
+    --color-danger-bg: #3a1d1d;
+    --color-focus: #7aa7ff;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 4px 14px rgb(0 0 0 / 0.3);
+    --shadow-hover: 0 12px 28px rgb(0 0 0 / 0.5);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--page-padding);
+}
